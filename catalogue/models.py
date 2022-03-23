@@ -6,10 +6,10 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=30)
     category_description = models.CharField(max_length=30)
-    parent_category = models.ForeignKey("self", on_delete=models.CASCADE)
+    parent_category = models.ForeignKey("self", on_delete=models.CASCADE, related_name="category")
     is_active = models.BooleanField(default=False)
 
 
 class StaticItem(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="category")
     html_content = models.TextField()

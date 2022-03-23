@@ -9,11 +9,23 @@ class InformationCategory(models.Model):
 
 
 class InformationItem(models.Model):
-    information_cat = models.ForeignKey(InformationCategory, on_delete=models.CASCADE)
+    information_cat = models.ForeignKey(
+        InformationCategory,
+        on_delete=models.CASCADE,
+        related_name="information_category"
+    )
     content_path = models.CharField(max_length=255)
 
 
 class InlineInformationItem(models.Model):
-    information_cat = models.ForeignKey(InformationCategory, on_delete=models.CASCADE)
-    content_path = models.ForeignKey(InformationItem, on_delete=models.CASCADE)
+    information_cat = models.ForeignKey(
+        InformationCategory,
+        on_delete=models.CASCADE,
+        related_name="information_category"
+    )
+    content_path = models.ForeignKey(
+        InformationItem,
+        on_delete=models.CASCADE,
+        related_name="information_item"
+    )
     marqup = models.TextField()
