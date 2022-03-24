@@ -6,7 +6,7 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=30)
     category_description = models.CharField(max_length=30)
-    parent_category = models.ForeignKey("self", on_delete=models.CASCADE, related_name="category")
+    parent_category = models.ForeignKey("self", on_delete=models.CASCADE, related_name="category_parent_category")
     is_active = models.BooleanField(default=False)
 
 
