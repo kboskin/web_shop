@@ -24,7 +24,11 @@ class Order(models.Model):
     delivery_address = models.TextField()
     total_items_count = models.IntegerField()
     order_status = models.TextField()
-    last_payment_id = models.BigIntegerField()
+    last_payment_id = models.ForeignKey(
+        'payment.PaymentLog',
+        on_delete=models.CASCADE,
+        related_name="order_last_payment_id"
+    )
     products = ArrayField(ArrayField(models.IntegerField()))
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
     order_date = models.DateField()
