@@ -3,6 +3,6 @@ from cart import views
 
 
 urlpatterns = [
-    path('<int:pk>/', views.RetrieveUpdateDestroyCart.as_view()),
+    path('<int:cartId>/', views.RetrieveUpdateDestroyCart.as_view()),
     path('', views.CreateAndListCart.as_view()),
 ]

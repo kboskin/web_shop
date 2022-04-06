@@ -1,11 +1,13 @@
 from rest_framework import serializers
 
 from cart.models import Cart
+from customer.serializers import CustomerSerializer
 
 
 class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
+        customer = CustomerSerializer()
         fields = ['id', 'customer', 'created_date']
 
 
