@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 #
@@ -31,6 +32,6 @@ class Image(models.Model):
 
 class Feedback(models.Model):
     product = models.ForeignKey(Product, related_name="feedback_product", on_delete=models.CASCADE)
-    customer = models.ForeignKey(User, related_name="feedback_customer", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="feedback_customer", on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
     message = models.TextField()

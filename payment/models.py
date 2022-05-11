@@ -11,7 +11,7 @@ class PaymentLog(models.Model):
     type = models.TextField()
     status = models.TextField()
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="payment_log_order")
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="payment_log_customer")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="payment_log_customer")
     date = models.DateField(auto_now_add=True)
     request_data = models.TextField()
     response_data = models.TextField()

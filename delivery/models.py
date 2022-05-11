@@ -8,7 +8,7 @@ from customer.models import Customer
 
 class DeliveryLog(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="delivery_log_order")
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="delivery_log_user")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="delivery_log_user")
     amount = models.FloatField()
     type = models.TextField()
     status = models.TextField()

@@ -20,6 +20,6 @@ def update_user(created, instance, *args, **kwargs):
 
 
 class VisitLog(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="visit_log_user")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="visit_log_user")
     activity_type = models.CharField(max_length=30)
     activity_date = models.DateField(auto_now_add=True)
