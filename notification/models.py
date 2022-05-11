@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -9,15 +10,15 @@ class Notification(models.Model):
     subtitle = models.TextField()
     content = models.TextField()
     connection_type = models.TextField()
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="customer_notification")
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="customer_notification")
     status = models.TextField()
     date = models.DateField(auto_now_add=True)
     request_data = models.TextField()
     response_data = models.TextField()
 
+
 class NotificationLog(models.Model):
     date = models.DateField()
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="notification_log_customer")
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notification_log_customer")
     notification = models.ForeignKey(Notification, on_delete=models.CASCADE,
                                      related_name="notification_log_notification")
-
