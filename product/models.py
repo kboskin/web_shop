@@ -31,6 +31,6 @@ class Image(models.Model):
 
 class Feedback(models.Model):
     product = models.ForeignKey(Product, related_name="feedback_product", on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, related_name="feedback_customer", on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, related_name="feedback_customer", on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
     message = models.TextField()
