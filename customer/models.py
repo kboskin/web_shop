@@ -14,7 +14,7 @@ class Customer(models.Model):
 
 # method for updating
 @receiver(post_save, sender=User, dispatch_uid=datetime.now().microsecond)
-def update_user(created, instance):
+def update_user(created, instance, *args, **kwargs):
     if created:
         Customer.objects.create(user=instance)
 

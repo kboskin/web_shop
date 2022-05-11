@@ -8,7 +8,7 @@ from django.contrib.postgres.fields import ArrayField
 
 class Cart(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="cart_customer")
-    created_date = models.DateField()
+    created_date = models.DateField(auto_now_add=True)
 
 
 class BookedProduct(models.Model):
