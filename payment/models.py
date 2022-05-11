@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 from cart.models import Order
-from customer.models import Customer
+from customer.models import Profile
 
 
 class PaymentLog(models.Model):

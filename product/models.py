@@ -6,7 +6,7 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 from catalogue.models import Category
-from customer.models import Customer
+from customer.models import Profile
 
 
 class Distributor(models.Model):
