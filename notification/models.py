@@ -18,4 +18,5 @@ class NotificationLog(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="notification_log_customer")
     notification = models.ForeignKey(Notification, on_delete=models.CASCADE,
                                      related_name="notification_log_notification")
-    raw_data = models.TextField()
+    request_data = models.TextField()
+    response_data = models.TextField()
