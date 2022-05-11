@@ -11,12 +11,13 @@ class Notification(models.Model):
     connection_type = models.TextField()
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="customer_notification")
     status = models.TextField()
-
+    date = models.DateField(auto_now_add=True)
+    request_data = models.TextField()
+    response_data = models.TextField()
 
 class NotificationLog(models.Model):
     date = models.DateField()
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="notification_log_customer")
     notification = models.ForeignKey(Notification, on_delete=models.CASCADE,
                                      related_name="notification_log_notification")
-    request_data = models.TextField()
-    response_data = models.TextField()
+
