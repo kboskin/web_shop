@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 #
@@ -5,7 +6,7 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 from catalogue.models import Category
-from customer.models import Customer
+from customer.models import Profile
 
 
 class Distributor(models.Model):
@@ -31,6 +32,6 @@ class Image(models.Model):
 
 class Feedback(models.Model):
     product = models.ForeignKey(Product, related_name="feedback_product", on_delete=models.CASCADE)
-    customer = models.ForeignKey(User, related_name="feedback_customer", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="feedback_customer", on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
     message = models.TextField()

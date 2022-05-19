@@ -1,12 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from customer.models import Customer
+from customer.models import Profile
 from product.models import Product
 
 
 class Cart(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cart_customer")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cart_customer")
     created_date = models.DateField(auto_now_add=True)
 
 
@@ -26,7 +26,7 @@ class Order(models.Model):
         on_delete=models.CASCADE,
         related_name="order_last_payment_id"
     )
-    customer = models.OneToOneField(Customer, on_delete=models.CASCADE, related_name="order_customer")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="order_customer")
     order_date = models.DateField(auto_now_add=True)
 
 

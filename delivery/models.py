@@ -3,12 +3,12 @@ from django.db import models
 
 # Create your models here.
 from cart.models import Order
-from customer.models import Customer
+from customer.models import Profile
 
 
 class DeliveryLog(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="delivery_log_order")
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="delivery_log_user")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="delivery_log_user")
     amount = models.FloatField()
     type = models.TextField()
     status = models.TextField()
